@@ -1,0 +1,90 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'nav_bar.css'%}">
+</head>
+<body>
+  <header>
+    <nav>
+      <input type="checkbox" id="sidebar-active">
+            <label for="sidebar-active" class="open-sidebar-button">
+                <svg class="open" xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+            </label>
+            <label id="overlay" for="sidebar-active"></label>
+
+            <a href="{% url 'home'%}" class="nav-logo-mobile"><img class="home-logo-mobile" src="{%static '/imgs/homepage logo.png'%}" alt=""></a>
+            
+            <div class="links-container">
+                <label for="sidebar-active" class="close-sidebar-button">
+                    <svg class="close" xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 -960 960 960" width="32"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
+                </label>
+                
+                <a href="{% url 'home'%}" class="nav-logo"><img class="home-logo" src="{%static '/imgs/homepage logo.png'%}" alt=""></a>
+                
+                <div class="nav-buttons">
+                  {%if b.0 == 1 %}
+                    <a href="{% url 'home'%}" class="nav-btn"><button id="about">Home</button></a>
+                  {%else%}
+                    <a href="{% url 'home'%}" class="nav-btn"><button id="home">Home</button></a>
+                  {%endif%}
+                  {%if b.1 == 1 %}
+                    <a href="{% url 'search'%}" class="nav-btn"><button id="about">Search</button></a>
+                  {%else%}
+                    <a href="{% url 'search'%}" class="nav-btn"><button id="home">Search</button></a>
+                  {%endif%}
+                  {%if b.2 == 1 %}
+                    <a href="{%url 'about'%}" class="nav-btn"><button id="about">About Us</button></a>
+                  {%else%}
+                    <a href="{%url 'about'%}" class="nav-btn"><button id="home">About Us</button></a>
+                  {%endif%}
+                  {%if b.3 == 1 %}
+                    <a href="{% url 'contact_us'%}" class="nav-btn"><button id="about">Contact Us</button></a>
+                  {%else%}
+                    <a href="{% url 'contact_us'%}" class="nav-btn"><button id="home">Contact Us</button></a>
+                  {%endif%}
+                </div>
+                {%if loggedin%}
+                <a href="{% url 'favorite'%}" id="favourite"><i class="fa fa-heart favourite-logo" alt=""></i></a>
+                <a href="{% url 'list_property'%}" class="sell"><button id="sell">Sell Property</button></a>
+                <a href="{% url 'profile'%}" class="login">
+                    <button class="login-btn"><img class="login-icon" src="{%static '/imgs/login homepage.png'%}" alt="">Profile</button>
+                </a>
+                {%else%}
+                <a><img style='visibility: hidden;' class="favourite-logo" src="{%static '/imgs/full_favourite.png'%}" alt=""></a>
+                <a><img style='visibility: hidden;' class="favourite-logo" src="{%static '/imgs/full_favourite.png'%}" alt=""></a>
+                <a><button style='visibility: hidden;' id="sell">Sell Property</button></a>
+                <a href="{% url 'login'%}" class="login">
+                    <button class="login-btn"><img class="login-icon" src="{%static '/imgs/login homepage.png'%}" alt="">Login</button>
+                </a>
+                {%endif%}
+            </div>
+    </nav>
+    {% if messages%}
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>
+        {% for message in messages%}
+        {{message}}
+        {%endfor%}
+        </strong>
+      </div>
+    {%endif%}
+    <hr class="nav-line">
+  </header>
+    <script>
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+        
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
+    </script>
+</body>
+</html>

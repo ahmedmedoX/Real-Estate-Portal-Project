@@ -1,0 +1,270 @@
+:root{
+    --dark-blue: #001d47;
+    --light-green: #00b98e;    
+}
+*{
+    box-sizing: border-box;
+    font-family: Roboto , sans-serif;
+    margin: 0;
+}
+body{
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* search and filter */
+.search{
+    margin-top: 150px;
+    margin-left: 2.5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 8px;
+    width: 95%;
+    height: 100px;
+    gap: 10px;
+}
+.search *{
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.2vw;
+}
+.search input{
+    width: 25%;
+    margin-left: 10px;
+    padding-left: 8px;
+    border: 3px solid #c7c6c6;
+}
+.search select{
+    cursor: pointer;
+    width: 15%;
+    padding-left: 5px;
+    border: 3px solid #c7c6c6;
+}
+.search button{
+    width: 12%;
+    font-size: 1.3vw;
+    background-color: #00b98e;
+    color: #fff;
+    outline: none;   
+    margin-right: 10px; 
+    cursor: pointer;
+    transition: box-shadow 0.5s;
+}
+.search button:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+#Listing{
+    width: 10%;
+}
+/* search results (the apartments) */
+main{
+    display: grid;
+    grid-template-columns: auto auto ;
+    width: 100%;
+    row-gap: 50px;
+    margin-top: 50px;
+    padding: 0px 150px;
+    /* background-color: #666; */
+}
+.apartment{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: #eee 2px solid;
+    border-radius: 10px;
+    /* box-shadow: 0px 0px 5px #666; */
+    border: 3px solid #eee;
+    transition: box-shadow 0.4s;
+}
+.apartment:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+.apartment_img{
+    width: 100%;
+    height: 280px;
+    border-radius: 10px 10px 0px 0px;
+}
+.favourite{
+    width: 30px;
+    padding: 4px;
+    color: white;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    cursor: pointer;
+}
+.apartment h4 , .apartment p , .details{
+    margin: 5px 10px 0px;
+}
+.details{
+    width: 40%;
+}
+.price_and_contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+.price p{
+    margin: 0px;
+}
+.contact{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    width: 30%;
+}
+.contact a{
+    width: 100%;
+    height: 60px;
+}
+.call{
+    background-color:#e4ebf2;
+}
+.whatsapp{
+    background-color: #4cd964;
+}
+.call , .whatsapp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.call-icon, .whatsapp-icon{
+    width: 70%;
+}
+
+.page_selector{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 90px;
+    gap: 20px;
+}
+.page_selector *{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.left_arrow img , .right_arrow img{
+    padding: 10px;
+    transition: background-color 0.5s;
+}
+.left_arrow img{
+    border: #0e2e50 2px solid;
+}
+.right_arrow img{
+    border: #0e2e50 2px solid ;
+    transform: rotate(180deg);
+}
+.right_arrow img:hover , .left_arrow img:hover{
+    background-color: #d1d1d1;
+}
+.page_selector button{
+    border: none;
+    background-color: #eee;
+    font-size: 16px;
+    transition: box-shadow 0.5s;
+}
+.page_selector button:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+#current_page{
+    background-color: #0e2e50;
+    box-shadow: 0px 0px 8px #000;
+    color: #fff;
+}
+
+
+@media (max-width: 490px) {
+    .search{
+        display: grid;
+        grid-template-columns: auto auto;
+        width: 100%;
+        margin-left: 0%;
+        
+    }
+    .search *{
+        font-size: 15px;
+    }
+    .search input{
+        width: 100%;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        margin-left: 0%;
+        order: 1;
+    }
+    .search select{
+        width: 100%;
+    }
+    .search button{
+        width: 100%;
+        font-size: 16px;
+        grid-column-start: 1;
+        grid-column-end: 3;
+        order: 8;
+    }
+    #Listing{
+        width: 100%;
+        order: 3;
+    }
+    #property_type{
+        order: 2;
+    }
+    #Bathrooms{
+        order: 4;
+    }
+    #Bedrooms{
+        order: 5;
+    }
+    #Price{
+        order: 6;
+    }
+    #sort{
+        order: 7;
+    }
+
+    main{
+        display: grid;
+        grid-template-columns: auto;
+        width: 80%;
+        margin-left: 10%;
+        row-gap: 30px;
+        padding: 0px;
+        margin-top: 200px;
+    }
+    .apartment{
+        width: 100%;
+        height: 340px;
+    }
+    .apartment_img{
+        height: 200px;
+    }
+    .contact{
+        margin-top: -15px;
+    }
+}
+@media (max-width:768px){
+    main{
+        padding: 0px;
+        width: 90%;
+        margin-left: 5%;
+        column-gap: 30px;
+    }
+    .apartment{
+        width: 100%;
+        height: 340px;
+    }
+    .apartment_img{
+        height: 200px;
+    }
+}

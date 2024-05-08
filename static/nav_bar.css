@@ -1,0 +1,336 @@
+:root{
+    --dark-blue: #001d47;
+    --light-green: #00b98e;    
+}
+*{
+    box-sizing: border-box;
+    font-family: Roboto , sans-serif;
+    margin: 0;
+}
+body{
+    height: auto;
+    margin-bottom: 20px;
+}
+/* navbar(header) */
+header{
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+}
+nav{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 30px;
+    height: 95px;
+    background-color: #fff;
+}
+#sidebar-active{
+  display: none;
+}
+.open-sidebar-button, .close-sidebar-button{
+  display: none;
+}
+.links-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}  
+.nav-logo-mobile{
+    display: none;
+}
+nav .close{
+    fill: #fff;
+}  
+.nav-logo{
+    width: 20%;
+    height: 70%;
+    margin-left: 3%;
+    margin-bottom: 10px;
+}
+.home-logo{
+    width: 85%;
+    height: 100%;
+}
+.nav-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 45%;
+    height: 70%;
+    margin-left: 5%;
+}
+.nav-btn{
+    text-align: center;
+    width: 20%;
+    height: 100%;
+    margin-left: 1%;
+}
+#home ,#about{
+    width: 100%;
+    height: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3vw;
+    text-wrap: nowrap;
+    text-decoration: none;
+    background-color: #fff;
+    transition: background-color 0.5s ease-out;
+}
+#home:hover,#about:hover{
+    background-color: #eee;
+}
+#about{
+    background-color: #eee;
+    border-bottom: #000 solid 4px;
+}
+#favourite{
+    font-size: 28px;
+    text-decoration: none;
+    color: #001d47;
+    width: 2.3%;
+    height: 70%;
+    margin-left: 2%;
+    margin-right: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.favourite-logo{
+    width: 100%;
+}
+.sell{
+    height: 70%;
+    width: 9%;
+    margin-left: 1%;
+    border-radius: 5px;
+}
+#sell{
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    height: 100%;
+    width: 100%;
+    font-size: 1.3vw;
+    text-wrap: nowrap;
+    background-color: var(--light-green);
+    color: #fff;
+    box-shadow: 0px 0px 3px #000;
+    transition: box-shadow 0.5s ease-out;
+}
+#sell:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+.login{
+    width: 9%;
+    height: 70%;
+    margin-left: 1%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.login-icon{
+    width: 20%;
+    height: 60%;
+    margin-bottom: 5px;
+    margin-right: 5px;
+    margin-left: 15%;
+}
+.login-btn{
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 1.3vw;
+    cursor: pointer;
+    border-radius: 5px;
+    color: var(--light-green);
+    border: var(--light-green) 1px solid;
+    background-color: #fff;
+    transition: box-shadow 0.5s ease-out;
+}
+.login-btn:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+.nav-line{
+    border-width: 2px;
+}
+.alert {
+    padding: 20px;
+    background-color: #f2e56d;
+    color: rgb(0, 0, 0);
+    opacity: 1;
+    transition: opacity 0.6s;
+  }
+.closebtn {
+    margin-left: 15px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+.closebtn:hover {
+  color: rgb(255, 255, 255);
+}
+@media (max-width: 490px) {
+    /* chatbot */
+    .chatbot-toggler {
+      right: 20px;
+      bottom: 20px;
+    }
+    .chatbot {
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      border-radius: 0;
+      width: 100%;
+    }
+    .chatbot .chatbox {
+      height: 90%;
+      padding: 25px 15px 100px;
+    }
+    .chatbot .chat-input {
+      padding: 5px 15px;
+    }
+    .chatbot .chatbot-header span {
+      display: block;
+    }
+    .links-container{
+        flex-direction: column;
+        align-items: flex-start;
+        opacity: 0.9;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 10;
+        width: 250px;
+        background-color: #000;
+        box-shadow: -5px 0 5px rgba(0, 0, 0, 0.25);
+        transition: 0.75s ease-out;
+    }
+    /* navbar */
+    .nav-buttons{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+    .nav-btn{
+      box-sizing: border-box;
+      height: 20%;
+      width: 100%;
+      padding: 20px 0px;
+      margin-left: -0.5px;
+    }
+    #home, #properties, #about, #contact{
+        color: #eee;
+        background-color: #000;
+        width: 100%;
+        height: 100%;
+        font-size: 15px;
+    }
+    #home:hover, #properties:hover, #about:hover, #contact:hover{
+        color: #000;
+    }
+    #about{
+        border: none;
+        color: #fff;
+        font-weight: bold;
+    }
+    .nav-logo-mobile{
+        display: block;
+        width: 40%;
+        height: 50%;
+    }
+    .home-logo-mobile{
+        width: 100%;
+        height: 100%;
+    }
+    .nav-logo{
+        display: none;
+    }
+    .open-sidebar-button, .close-sidebar-button{
+      padding: 20px;
+      display: block;
+    }
+    .open-sidebar-button{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        transition: transform 0.5s;
+        margin-top: -17px;
+    }
+    #sidebar-active:checked ~ .links-container{
+      right: 0;
+    }
+    #sidebar-active:checked ~ .open-sidebar-button{
+        transform: rotate(90deg);
+    }
+    .open{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    #favourite{
+        height:20%;
+        font-size: 28px;
+        width:auto;
+        margin-left: 44%;
+        text-decoration: none;
+        color: white;
+    }
+    .sell{
+        background-color: var(--light-green);
+        width: 90%;
+        height: 10%;
+        border-radius: 0px;
+        margin-left: 5%;
+        margin-bottom: 10px;
+    }
+    #sell{
+        background: none;
+        font-size: 15px;
+        width: 100%;
+        border-radius: 0px;
+    }
+    .login{
+        width: 90%;
+        height: 10%;
+        background-color: var(--dark-blue);
+        border-radius: 0px;
+        margin-left: 5%;
+        margin-bottom: 100px;
+    }
+    .login-btn{
+        background: none;
+        font-size: 15px;
+        width: 100%;
+        color: #fff;
+        border: none;
+        padding-left: 42%;
+    }
+    .login-icon{
+        display: none;
+    }
+    .login-btn:hover{
+        box-shadow: 0px 0px 0px #000;
+    }
+    .nav-line{
+        margin-top: -20px;
+    }
+}

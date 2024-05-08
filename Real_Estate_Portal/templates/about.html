@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'about.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <link rel="shortcut icon" type="image/png" href="{% static '/imgs/logo.png' %}" >
+        <title>SuiteHome</title>
+    </head>
+<body>
+    {% include 'nav_bar.html' %}
+    <main>
+        <h1>About Us</h1>
+        <img class="homepage_logo" src="{% static '/imgs/homepage logo.png' %}" alt="SuiteHome logo">
+        <div class="about">
+            <h4>Welcome to <span><span class="part">S</span>uite<span class="part">H</span>ome</span>, your premier destination for finding your perfect home. </h4>
+            <p>At <span><span class="part">S</span>uite<span class="part">H</span>ome</span>, we understand that finding the right place to live is more than just a transaction; it's about <br> finding a space that truly feels like home.</p>
+            <p>Our mission at <span><span class="part">S</span>uite<span class="part">H</span>ome</span> is to make the process of buying or selling a home as seamless and enjoyable as <br> possible. Whether you're a first-time buyer looking for your dream home, a seller wanting to showcase your <br> property, <span><span class="part">S</span>uite<span class="part">H</span>ome</span> is here to help.</p>
+            <p>What sets <span><span class="part">S</span>uite<span class="part">H</span>ome</span> apart is our commitment to personalized service and attention to detail. Our team of <br> experienced real estate professionals is dedicated to understanding your unique needs and preferences, <br> ensuring that we find the perfect match for you.</p>
+            <p>With a wide range of properties to choose from, including apartments, houses, and luxury estates, <span><span class="part">S</span>uite<span class="part">H</span>ome</span> <br> has something for everyone. Explore our listings today and let us help you find your <span><span class="part">S</span>uite<span class="part">H</span>ome</span>.</p>
+            <img src="{% static '/imgs/logo.png' %}" alt="SuiteHome logo">
+        </div>
+    </main>
+    {% include 'footer.html' %}
+</body>
+</html>

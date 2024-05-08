@@ -1,0 +1,68 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'footer.css'%}">
+</head>
+<body>
+{% include 'chatbot.html'%}
+<hr class="footer_line">
+    <footer>
+        <div class="list">
+            <ul class="list1">
+                <h5>Quick Links</h5>
+                <li><a href="{% url 'about'%}">About Us</a></li>
+                <li><a href="{% url 'contact_us'%}">Contact Us</a></li>
+            </ul>
+            <ul class="list2">
+                <h5>Property Type</h5>
+                <li><a href="{% url 'type_search' 'Apartment'%}">Apartment</a></li>
+                <li><a href="{% url 'type_search' 'Villa'%}">Villa</a></li>
+                <li><a href="{% url 'type_search' 'House'%}">House</a></li>
+                <li><a href="{% url 'type_search' 'Office'%}">Office</a></li>
+                <li><a href="{% url 'type_search' 'Studio'%}">Studio</a></li>
+                <li><a href="{% url 'type_search' 'Shop'%}">Shop</a></li>
+            </ul>
+            <ul class="list3">
+                <h5>Areas</h5>
+                <li><a href="{% url 'area_search' 'New Cairo' %}">New Cairo</a></li>
+                <li><a href="{% url 'area_search' 'New Capital' %}">New Capital City</a></li>
+                <li><a href="{% url 'area_search' '6th of October' %}">6th of October City</a></li>
+                <li><a href="{% url 'area_search' 'North Coast' %}">North Coast</a></li>
+                <li><a href="{% url 'area_search' 'Ain Sokhna' %}">Ain Sokhna</a></li>
+                <li><a href="{% url 'area_search' 'El Sheikh Zayed' %}">El Sheikh Zayed</a></li>
+                <li><a href="{% url 'area_search' 'Mostakbal City' %}">Mostakbal City</a></li>
+                <li><a href="{% url 'area_search' 'New Heliopolis' %}">New Heliopolis</a></li>
+                <li><a href="{% url 'area_search' 'El Shorouk' %}">El Shorouk</a></li>
+                <li><a href="{% url 'area_search' 'Alexandria' %}">Alexandria</a></li>
+            </ul>
+        </div>
+        <div class="social">
+            <img class="footer_logo" src="{% static '/imgs/homepage logo.png'%}" alt="">
+            <h4>Real Estate Company</h4>
+            <div class="social_media">
+                <a href=""><img src="{% static '/imgs/facebook_footer.png'%}" alt=""></a>
+                <a href=""><img src="{% static '/imgs/linkedin_footer.png'%}" alt=""></a>
+                <a href=""><img src="{% static '/imgs/youtube_footer.png'%}" alt=""></a>
+                <a href=""><img src="{% static '/imgs/instagram_footer.png'%}" alt=""></a>
+                <a href=""><img src="{% static '/imgs/twitter_footer.png'%}" alt=""></a>
+            </div>
+        </div>
+        <hr>
+        <h5 class="copyright">© Copyright 2024 - SuiteHome</h5>
+    </footer>
+    <script src="{%static 'location.js'%}"></script>
+    <!-- <script>
+        window.embeddedChatbotConfig = {
+        chatbotId: "FbmrVr4c91DNGyTU7UHhF",
+        domain: "www.chatbase.co"
+        }
+        </script>
+        <script
+        src="https://www.chatbase.co/embed.min.js"
+        chatbotId="FbmrVr4c91DNGyTU7UHhF"
+        domain="www.chatbase.co"
+        defer>
+        </script> -->
+</body>
+</html>

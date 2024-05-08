@@ -1,0 +1,99 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'favourite.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static '/imgs/logo.png' %}" >
+    <title>SuiteHome</title>
+</head>
+<body>
+    {% include 'nav_bar.html' %}
+
+    <main>
+        {%if properties%}
+        {% for property in properties %}
+        <div class="properties">
+            <a class="property_link" href="{%url 'property' property.0.id %}">
+            <img class="property_image" src="{{property.0.image1.url}}" alt="Apartment">   
+            </a>
+            <div class="property_details">
+                <h5>{{property.0.name}}</h5>
+                <h4>Category: {{property.0.category}}</h4>
+                <div class="location">
+                    <img src="{% static '/imgs/gps.png'%}" alt="location">
+                    <p>{{property.0.city}}, Egypt</p>
+                </div>
+                <p id="property-space">{{property.0.size}} m<sup>2</sup></p>
+                <div class="price">
+                    <p>{{property.2}} Monthly / {{property.0.installment_years}} Years </p>
+                    <h3>{{property.1}} EGP</h3>
+                </div>
+                <div class="contact">
+                    <button class="c"><img class="call" src="{% static '/imgs/call.png'%}" alt="call">Call</button>
+                    <button class="e"><img class="email" src="{% static '/imgs/email.png'%}" alt="email">Email</button>
+                    <button class="w"><img class="whatsapp" src="{% static '/imgs/whatsapp.png'%}" alt="whatsapp">Whatsapp</button>
+                    <hr>
+                    <button onclick="remove('{{property.0.id}}')" class="f"><img class="favourite_2" src="{% static '/imgs/full_favourite.png'%}" alt="favourite"></button>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+        {%else%}
+        No favourites on this account!
+        {%endif%}
+    </main>
+    {%if properties%}
+    <div class="page_selector">
+        {% if properties.has_previous %}
+            <a class="left_arrow" href="?page={{properties.previous_page_number}}">
+                <img src="{%static '/imgs/arrow.png'%}" alt="left-arrow">
+            </a>
+            <a href="?page={{properties.previous_page_number}}">
+                <button style="font-size: larger; color: #0e2e50; font-weight: bold;">{{properties.previous_page_number}}</button>
+            </a>
+        {%else%}
+            <a class="left_arrow">
+                <img style="background-color: rgb(176, 176, 176)" src="{%static '/imgs/arrow.png'%}" alt="left-arrow">
+            </a>
+        {% endif %}
+    
+        <a href="">
+            <button style="font-size: larger; color: white; font-weight: bold; background-color: #0e2e50;">{{properties.number}}</button>
+        </a>
+        
+        {% if properties.has_next %}
+            <a href="?page={{properties.next_page_number}}">
+                <button style="font-size: larger; color: #0e2e50; font-weight: bold;">{{properties.next_page_number}}</button>
+            </a>
+            <a class="right_arrow" href="?page={{properties.next_page_number}}">
+                <img src="{%static '/imgs/arrow.png'%}" alt="right-arrow">
+            </a>
+        {%else%}
+            <a class="right_arrow">
+                <img style="background-color: rgb(176, 176, 176)" src="{%static '/imgs/arrow.png'%}" alt="right-arrow">
+            </a>
+        {% endif %}
+    </div>
+    {%endif%} 
+    {% include 'footer.html' %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script>
+        function remove(id){
+            let x=0;
+            $(document).ready(function() {
+                        $.ajax({
+                            method: 'GET',
+                            url: "{% url 'add_favourite' %}",
+                            data: {id: id, x: x},
+                            success: function(data) {
+                                location.reload();
+                            }
+                        });
+                    });
+        }
+    </script>
+</body>
+</html>

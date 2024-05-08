@@ -1,0 +1,42 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'login.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Jaldi" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static '/imgs/logo.png' %}" >
+    <title>SuiteHome</title>
+</head>
+<body>
+    <a href="{% url 'home' %}"><img id="logo" src="{% static '/imgs/logo.png'%}" alt="logo"></a>
+    <form method="POST" action="{% url 'login' %}">
+        
+        {% csrf_token %}
+        <h1>Sign into <p>S</p>uite<p>H</p>ome</h1>
+        <div class="login_logos">
+            <a href=""><img id="facebook" src="{% static '/imgs/facebook logo2.png'%}" alt="Facebook"></a>
+            <a href=""><img id="google" src="{% static '/imgs/google logo.png'%}" alt="Google"></a>
+            <a href=""><img id="linkedin" src="{% static '/imgs/linkedin logo.png'%}" alt="Linkedin"></a>
+        </div>
+        <label>or use your account</label>
+        <input id="email" type="text" placeholder="Username" name="username" required>
+        <input id="password" type="password" placeholder="Password" name="password" required>
+        {% if messages%}
+        <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <strong>
+        {% for message in messages%}
+        {{message}}
+        {%endfor%}
+        </strong>
+      </div>
+    {%endif%}
+        <a href="{% url 'reset_password'%}" id="forgot">Forgot your password?</a>
+        <a href="{% url 'home' %}"><button type="submit">Sign in</button></a>
+        <a href="{% url 'sign_up' %}" id="sign_up">Don't have an account?</a>
+    </form>
+
+</body>
+</html>

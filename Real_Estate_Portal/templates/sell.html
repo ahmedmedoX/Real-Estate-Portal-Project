@@ -1,0 +1,156 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "http://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src = "http://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="{% static 'sell.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static '/imgs/logo.png' %}" >
+    <title>SuiteHome</title>
+</head>
+<body>
+    {% include 'nav_bar.html' %}
+
+    <main>
+        <div id="tabs">
+            <a href="">
+                <button id="sell-tab" class="tablink">Sell</button>
+            </a>
+            <a href="{% url 'rent_property' %}">
+                <button id="rent-tab" class="tablink">Rent</button>
+            </a>
+        </div>
+        <img class="property_sale" src="{% static '/imgs/property_sale.png'%}" alt="">
+        <h3>Sell Your Property With <span>S</span>uite<span>H</span>ome</h3>
+        <div class="steps">
+                <div class="step">
+                    <div class="step_number">
+                        <h3>1</h3>
+                        <h3>Step</h3>
+                    </div>
+                    <div class="step_details">
+                        <h3>List Your Property Details</h3>
+                        <p>Add all the information related to your property</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step_number">
+                        <h3>2</h3>
+                        <h3>Step</h3>
+                    </div>
+                    <div class="step_details">
+                        <h3>One Of Our Agents Will Call You</h3>
+                        <p>We will help you find the best buyer</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step_number">
+                        <h3>3</h3>
+                        <h3>Step</h3>
+                    </div>
+                    <div class="step_details">
+                        <h3>Meet With Serious Buyers</h3>
+                        <p>Final step to sell your property</p>
+                    </div>
+                </div>
+        </div>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'insert_property' %}">
+                {% csrf_token %}
+                <h3>Complete The Form</h3>
+                <input type="text" name="name" placeholder="Property Name" required>
+                <div class="full_address">
+                    <input type="number" name="floor_number" placeholder="Floor Number" required>
+                    <input type="number" name="apartment_number" placeholder="Apartment Number" required>
+                    <input type="number" name="Installment_years" placeholder="Installment Years" required>
+                    <input type="number" name="price" placeholder="Price" required>
+                    <input type="number" name="size" placeholder="Size" required>
+                    <input type="number" name="Bathrooms" placeholder="Bathrooms Number" required>
+                    <input type="number" name="Bedrooms" placeholder="Bedrooms Number" required>
+                    <select name="category" id="" required>
+                        <option value="" selected disabled>Property Type</option>
+                        <option value="Apartment">Apartment</option>
+                        <option value="Villa">Villa</option>
+                        <option value="House">House</option>
+                        <option value="Office">Office</option>
+                        <option value="Studio">Studio</option>
+                        <option value="Shop">Shop</option>
+                    </select>
+                    <div id="blank"></div>
+                    <label for="img" class="select-image1">Select image 1:</label>
+                    <label for="img" class="select-image2">Select image 2:</label>
+                    <label for="img" class="select-image3">Select image 3:</label>
+                    <input type="file" id="img" name="image1" accept="image/*" onchange="loadFile1(event)" required>
+                    <input type="file" id="img" name="image2" accept="image/*" onchange="loadFile2(event)" required>
+                    <input type="file" id="img" name="image3" accept="image/*" onchange="loadFile3(event)" required>
+                    <div class="upload"><img id="output1"></div>
+                    <div class="upload"><img id="output2"></div>
+                    <div class="upload"><img id="output3"></div>
+                </div>
+                
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description" required></textarea>
+                <div class="location">
+                    <input type="text" name="latitude" id="latitude" placeholder="Latitude" required>
+                    <input type="text" name="longitude" id="longitude" placeholder="Longitude" required>
+                </div>
+                <div id="map"></div>
+                <button class="submit" type="submit">Submit</button>
+        </form>    
+    </main>
+    {% include 'footer.html' %}
+    <script>
+            var loadFile1 = function(event) {
+        var output = document.getElementById('output1');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        if (output.src == null){
+            output.src == '';
+        }
+        output.onload = function() {
+          URL.revokeObjectURL(output.src) // free memory
+        }
+      };
+      var loadFile2 = function(event) {
+        var output = document.getElementById('output2');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        if (output.src == null){
+            output.src == '';
+        }
+        output.onload = function() {
+          URL.revokeObjectURL(output.src)
+        }
+      };
+      var loadFile3 = function(event) {
+        var output = document.getElementById('output3');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        if (output.src == null){
+            output.src == '';
+        }
+        output.onload = function() {
+          URL.revokeObjectURL(output.src)
+        }
+      };
+
+    let mapOptions = {
+        center:[30.027533131303024, 31.180677367122065],
+        zoom:15
+    }
+    let map = new L.map('map' , mapOptions);
+    let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    map.addLayer(layer);
+    let marker = null;
+    map.on('click', (event)=> {
+    
+        if(marker !== null){
+            map.removeLayer(marker);
+        }
+    
+        marker = L.marker([event.latlng.lat , event.latlng.lng]).addTo(map);
+    
+        document.getElementById('latitude').value = event.latlng.lat;
+        document.getElementById('longitude').value = event.latlng.lng;
+    })
+    </script>
+</body>
+</html>

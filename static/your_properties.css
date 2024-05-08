@@ -1,0 +1,241 @@
+:root{
+    --dark-blue: #001d47;
+    --light-green: #00b98e;    
+}
+*{
+    box-sizing: border-box;
+    font-family: Roboto , sans-serif;
+    margin: 0;
+}
+body{
+    height: auto;
+    margin-bottom: 20px;
+}
+
+main{
+    width: 70%;
+    margin: 150px 25% 0px 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+/* manage */
+.manage{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.manage button{
+    padding: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #fff;
+    border: #d1d1d1  3px solid;
+    transition: background-color 0.5s , box-shadow 0.5s;
+}
+.manage button:hover{
+    background-color: #d1d1d1;
+    box-shadow: #000 0px 0px 5px;
+}
+.manage img{
+    width: 18%;
+    height: auto;
+    margin-right: 5px;
+}
+.sort label{
+    font-size: 17px;
+    margin-right: 10px;
+}
+#sort{
+    height: 30px;
+    font-size: 17px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/* properties */
+.properties{
+    height: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: 3px #eee solid;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.property_link{
+    width: 50%;
+    background: #d1d1d1;
+}
+.property_image{
+    border-radius: 10px 0px 0px 10px;
+    width: 100%;
+    height: 100%;
+}
+.property_details{
+    width: 50%;
+    margin-left: 4%;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.property_details h5{
+    font-weight: bold;
+    font-size: 16px;
+}
+.location{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: -8px;
+    margin-top: -20px;
+    font-size: 14px;
+    color: #404040;
+}
+.location img{
+    width: 25px;
+}
+.contact{
+    width: 108%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    background-color: #eee;
+    padding: 12px;
+    margin-left: -8%;
+    margin-top: 8px;
+}
+.contact button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 5px;
+    height: 40px;
+    font-size: 1.2vw;
+    cursor: pointer;
+}
+#e{
+    width: 25%;
+    text-decoration: none;
+}
+#d{
+    width: 25%;
+    text-decoration: none;
+}
+.e{
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #000;
+}
+.d{
+    width: 100%;
+    background-color: #f00;
+    border: 1px solid #000;
+}
+.e , .d{
+    transition: box-shadow 0.5s;
+}
+.e:hover , .d:hover{
+    box-shadow: 0px 0px 7px #000;
+}
+.edit{
+    width: 30%;
+}
+.delete{
+    width: 20%;
+}
+
+.page_selector{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 90px;
+    gap: 20px;
+}
+.page_selector *{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.left_arrow img , .right_arrow img{
+    padding: 10px;
+    transition: background-color 0.5s;
+}
+.left_arrow img{
+    border: #0e2e50 2px solid;
+}
+.right_arrow img{
+    border: #0e2e50 2px solid ;
+    transform: rotate(180deg);
+}
+.right_arrow img:hover , .left_arrow img:hover{
+    background-color: #d1d1d1;
+}
+.page_selector button{
+    border: none;
+    background-color: #eee;
+    font-size: 16px;
+    transition: box-shadow 0.5s;
+}
+.page_selector button:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+#current_page{
+    background-color: #0e2e50;
+    box-shadow: 0px 0px 8px #000;
+    color: #fff;
+}
+
+@media (max-width: 490px) {
+    main{
+        width: 85%;
+        margin: 150px 7.5% 0px 7.5%;
+    }
+    .manage{
+        width: 100%;
+    }
+    .manage button{
+        font-size: 3.5vw;
+    }
+    .sort label{
+        font-size: 3.6vw;
+    }
+    #sort{
+        font-size: 3.6vw;
+    }
+    .properties{
+        flex-direction: column;
+        height: 500px;
+    }
+    .property_link{
+        width: 100%;
+        height: 280px;
+    }
+    .property_image{
+        width: 100%;
+        height: 100%;
+    }
+    .property_details{
+        width: 90%;
+        margin-left: 5%;
+        gap: 25px;
+    }
+    #property-space{
+        margin-top: -15px;
+    }
+    .contact{
+        width: 112%;
+        margin-top: -5px;
+        margin-left: -6%;
+    }
+    .contact button{
+        font-size: 3vw;
+    }
+}

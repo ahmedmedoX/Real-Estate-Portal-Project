@@ -1,0 +1,466 @@
+:root{
+    --dark-blue: #001d47;
+    --light-green: #00b98e;    
+}
+*{
+    box-sizing: border-box;
+    font-family: Roboto , sans-serif;
+    margin: 0;
+}
+body{
+    height: auto;
+    margin-bottom: 20px;
+}
+
+main{
+    width: 90%;
+    margin: 45px 5% 0px;
+    margin-top: 150px;
+}
+.first_part{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.image_slider{
+    position: relative;
+    width: 55%;
+    height: 480px;
+}
+.mySlides {
+    display:none;
+    height: 100%;
+    width: 100%;
+    border-radius: 15px;
+}
+.image_slider button{
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    border-radius: 100%;
+    border: none;
+}
+.image_slider button:hover{
+    background-color: #d1d1d1;
+    cursor: pointer;
+}
+.left_button{
+    left: 10px;
+}
+.right_button{
+    right: 10px;
+}
+.communicate{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 300px;
+    margin-left: 15%;
+    margin-top: 80px;
+    border: 3px solid #eee;
+    border-radius: 10px;
+}
+.like_and_share{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+.like_and_share *{
+    width: 50px;
+    height: 50px;  
+}
+.like_and_share button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+}
+.like_and_share button:hover{
+    background-color: #d1d1d1;
+}
+.like_and_share button img{
+    width: auto;
+    height: 26px;
+    margin-top: 5px;
+}
+.line{
+    width: 82%;
+    margin-left: 9%;
+    margin-top: 15px;
+}
+.contact_owner{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 15px;
+}
+.contact_owner a{
+    width: 80%;
+    height: 40px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 15px;
+    padding-top: 5px;
+    transition: box-shadow 0.5s;
+}
+.contact_owner a:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+.contact_owner img{
+    width: 20px;
+    height: auto;
+}
+#email{
+    background-color: #8c8c8c;
+    color:#fff;
+}
+#whatsapp{
+    background-color: #25d366;
+    color: #fff;
+}
+#call{
+    background-color: #0e2e50;
+    color: #fff;
+}
+
+.description{
+    margin-top: 25px;
+    font-size: 18px;
+    color: #0E2E50;
+}
+.location{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: -8px;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #404040;
+}
+.location img{
+    width: 30px;
+}
+.price_location{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.price{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-size: 18px;
+}
+.price_location a{
+    border: 3px solid #eee;
+    width: 30%;
+    height: 140px;
+    text-decoration: none;
+    gap: 15px;
+    color: #0E2E50;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    transition: box-shadow 0.5s;
+}
+.price_location a:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+.price_location img{
+    width: 20%;
+    height: auto;
+}
+
+iframe{
+    background-color: #666;
+}
+
+.table_details{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.table_details table{
+    border-collapse: collapse;
+    border-radius: 10px;
+    width: 55%;
+}
+.table_details td{
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 15px;  
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 30%;
+    background-color: #e4ebf2;
+    gap: 20px;
+    border-radius: 10px;
+}
+form *{
+    width: 80%;
+}
+form img{
+    margin-top: 15px;
+    width: 20%;
+}
+form h3 , form p{
+    text-align: center;
+}
+form input{
+    height: 45px;
+    padding-left: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+}
+#submit{
+    padding-right: 15px;
+    background-color: #0e2e50;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: box-shadow 0.5s;
+}
+#submit:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+.property_details{
+    margin-top: 70px;
+}
+.property_details ul{
+    list-style: none;
+    padding-left: 0px;
+}
+.property_details ul *{
+    margin: 8px 0px;
+}
+.advantages{
+    margin-top: 30px;
+}
+.advantages *{
+    margin-top: 10px;
+}
+#more{
+    display: none;
+}
+.advantages button{
+    border: 2px  solid #d1d1d1;
+    width: 100px;
+    height: 40px;
+    background: none;
+    font-weight: bold;
+}
+.advantages button:hover{
+    background-color: #d1d1d1;
+}
+
+
+
+
+
+/* suggested properties */
+.suggested{
+    color: #0E2E50;
+    text-align: left;
+    margin-top: 50px;
+}
+.suggestion{
+    display: grid;
+    grid-template-columns: auto auto ;
+    width: 100%;
+    row-gap: 50px;
+    margin-top: 50px;
+    padding: 0px 100px;
+    /* background-color: #666; */
+}
+.apartment{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: #eee 2px solid;
+    border-radius: 10px;
+    border: 3px solid #eee;
+    transition: box-shadow 0.4s;
+}
+.apartment:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+.apartment_img{
+    width: 100%;
+    height: 280px;
+    border-radius: 10px 10px 0px 0px;
+}
+.favourite{
+    width: 30px;
+    padding: 4px;
+    font-size: 20px;
+    color: white;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    cursor: pointer;
+}
+.apartment h4 , .apartment p , .details{
+    margin: 5px 10px 0px;
+}
+.details{
+    width: 40%;
+}
+.price_and_contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+.price p{
+    margin: 0px;
+}
+.price h3{
+    margin-top: -45px;
+}
+.contact{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    width: 30%;
+}
+.contact a{
+    width: 100%;
+    height: 60px;
+}
+.call{
+    background-color:#001d47;
+}
+.whatsapp{
+    background-color: #4cd964;
+}
+.call , .whatsapp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.call-icon, .whatsapp-icon{
+    width: 70%;
+}
+.googlemap{
+    width:30%;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+@media (max-width: 490px) {
+    main{
+        width: 100%;
+        margin: 0px;
+        margin-top: 110px;
+    }
+    .first_part{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .image_slider{
+        width: 90%;
+        height: 300px;
+        margin-left: 5%;
+    }
+    .communicate{
+        width: 45%;
+        margin-left: 50%;
+        margin-top: 30px;
+    }
+    .description{
+        margin-top: -200px;
+        margin-left: 5%;
+        font-size: 16px;
+    }
+
+    .location{
+        margin-bottom: 200px;
+        margin-left: 5%;
+        font-size: 14px;
+    }
+    .price_location{
+        justify-content: space-around;
+        margin-top: -40px;
+    }
+    .price{
+        font-size: 15px;
+        margin-left: -5%;
+        gap: 50px;
+    }
+    #price{
+        margin-top: -100px;
+    }
+    #property-details{
+        margin-top: 160px;
+    }
+    .table_details table{
+        margin-left: 3%;
+    }
+    .table_details td{
+        font-size: 2.8vw;
+        
+    }
+
+
+    form{
+        display: none;
+    }
+    .property_details{
+        margin-left: 5%;
+    }
+    .suggested{
+        text-align: center;
+    }
+    .suggestion{
+        display: grid;
+        grid-template-columns: auto;
+        width: 80%;
+        margin-left: 10%;
+        row-gap: 30px;
+        padding: 0px;
+        margin-top: 50px;
+    }
+    .apartment{
+        width: 100%;
+        height: 340px;
+    }
+    .apartment_img{
+        height: 200px;
+    }
+    .price_and_contact{
+        margin: 0px 25px;
+    }
+    .contact{
+        margin-top: -15px;
+    }
+    .googlemap{
+        margin-top: -100px;
+        width:40%;
+    }
+    .location,.description{
+        padding-right: 250px;
+    }
+}

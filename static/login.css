@@ -1,0 +1,151 @@
+body{
+    font-family: jaldi;
+}
+#logo{
+    width: 100px;
+    margin-left: 30px;
+    margin-top: -5px;
+    transition: background-color 0.5s;
+    border-radius: 10px;
+}
+#logo:hover{
+    background-color: #eee;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -35px;
+}
+h1{
+    font-weight: bolder;
+    color: #0e2e50;
+    font-size: 50px;
+    margin-bottom: -5px;
+}/*0e2e50*/
+h1 p{
+    display: inline;
+    color: #00b98e;
+    font-size: 55px;
+}
+/* h1 p::first-letter{
+    font-size: 52px;
+    color: #00b98e;
+} */
+.login_logos{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 5px;
+}
+.login_logos img{
+    width: 50px;
+    border-radius: 30px;
+    transition: background-color 0.5s;
+    box-shadow: 0px 0px 4px;
+}
+.login_logos img:hover{
+    background-color: #ece4e4;
+}
+#facebook{
+    margin-right: 17px;
+    border-radius: 30px;
+}
+#linkedin{
+    margin-left: 15px;
+    border-radius: 100px;
+}
+
+label{
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+input{
+    width: 350px;
+    height: 65px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    background-color: #d4f2eb;
+    border: none;
+    padding-left: 70px;
+    font-size: 15px;
+    transition: background-color 0.5s;
+}
+input:focus{
+    background-color: #a7d7cc;
+}
+input::placeholder{
+    color: #000;
+    font-size: 15px;
+}
+input:focus::placeholder{
+    opacity: 0;
+}
+#email{
+    background-image: url("imgs/user.png");
+    background-repeat: no-repeat;
+    background-position: 20px;
+    background-size: 30px;
+}
+#password{
+    background-image: url("imgs/password\ logo.png");
+    background-repeat: no-repeat;
+    background-position: 20px 15px;
+    background-size: 30px;
+}
+#forgot{
+    color: #000;
+    font-size: 17px;
+    text-shadow: 0px 0px 1px #000;
+    transition: color 0.5s;
+}
+#forgot:hover , #sign_up:hover{
+    color:  #2bbc82;
+}
+#forgot:focus , #sign_up:focus{
+    color: green;
+}
+a button{
+    margin: 15px 0px;
+    width: 220px;
+    height: 60px;
+    background-color: #00b98e;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+    box-shadow: 0px 0px 7px #000;
+}
+a button:hover{
+    cursor: pointer;
+    background-color: #1b9478;
+}
+#sign_up{
+    font-weight: bold;
+    font-size: 20px;
+    color: #000;
+    text-shadow: 0px 0px 1px #000;
+    transition: color 0.5s;
+}
+.alert {
+    padding: 20px;
+    background-color: #f2e56d;
+    color: rgb(0, 0, 0);
+    opacity: 1;
+    transition: opacity 0.6s;
+  }
+.closebtn {
+    margin-left: 15px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+.closebtn:hover {
+  color: rgb(255, 255, 255);
+}

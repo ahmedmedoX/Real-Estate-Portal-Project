@@ -1,0 +1,422 @@
+:root{
+    --dark-blue: #001d47;
+    --light-green: #00b98e;    
+}
+*{
+    box-sizing: border-box;
+    font-family: Roboto , sans-serif;
+    margin: 0;
+}
+body{
+    height: auto;
+    margin-bottom: 20px;
+}
+#top{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin-left: 5%;
+}
+main{
+    margin-top: 150px;
+}
+section{
+    font-size: 2vw;
+    color: #0e2e50;
+}
+section p{
+    display: inline;
+    color: #00b98e;
+}
+article{
+    color: #0E2E50;
+    margin-top: 50px;
+    font-size:  1.3vw;
+}
+aside{
+    display: flex;
+    flex-direction: row;
+    margin-left: 45%;
+    overflow-x: auto;
+    width: 100%;
+    height: 28vw;
+    background-color: #666;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+aside img {
+    width: 100%;
+    scroll-snap-align: start;
+    opacity: 0.8;
+    transition: opacity 0.5s ease-out;
+}
+
+aside:hover img {
+    opacity: 1;
+}
+.search{
+    margin-top: 50px;
+    margin-left: 2.5%;
+    width: 95%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #00b98e;
+    border-radius: 8px;
+    height: 100px;
+}
+.search *{
+    height: 45px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.1vw;
+}
+.search input{
+    width: 22.5%;
+    margin-left: 10px;
+    padding-left: 20px;
+}
+.search select{
+    cursor: pointer;
+    width: 10%;
+    padding-left: 5px;
+}
+.search button{
+    width: 10%;
+    background-color: #0E2E50;
+    color: #fff;
+    outline: none;   
+    margin-right: 10px; 
+    font-weight: bold;
+    cursor: pointer;
+    transition: box-shadow 0.5s;
+}
+.search button:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+/* top ares */
+.top_areas{
+    text-align: center;
+    margin-top: 65px;
+    color: #0e2e50;
+    font-size: 40px;
+}
+.areas{
+    margin-top: 40px;
+    width: 90%;
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    align-items: center;
+}
+.city{
+    color: #0E2E50;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px #d3d0d0;
+    cursor: pointer;
+    transition: box-shadow 0.5s;
+}
+.city:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+.city h3{
+    margin-top: 25px;
+}
+.city p{
+    font-size: 15px;
+}
+/* sell */
+.sell-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f0f0;
+    background-image: url(imgs/learn_more.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+    margin-top: 50px;
+    margin-left: 5%;
+    padding: 20px;
+    width: 90%;
+    border-radius: 10px;
+}
+.sell-container h2{
+    margin-left: 1%;
+    margin-bottom: 8px;
+    color: #0E2E50;
+    font-weight: lighter;
+}
+.sell-card{
+    display: flex;
+    flex-direction: row;
+}
+.sell-card img{
+    margin-left: 5px;
+    width: 35px;
+    height: 35px;
+}
+.sell-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 98%;
+    margin-left: 1%;
+}
+.sell-form a{
+    color: #1E4164;
+    transition: text-shadow 0.2s;
+}
+.sell-form a:hover{
+    text-shadow: 0px 0px 1px #173049;
+}
+/* property type */
+.property_type{
+    margin-top: 60px;
+    font-size: 40px;
+    text-align: center;
+    color: #0E2E50;
+}
+.properties{
+    margin-top: 40px;
+    width: 90%;
+    margin-left: 5%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.type{
+    color: #0E2E50;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: #00b98e 2px dotted;
+    border-radius: 10px;
+    box-shadow: #80d8c4 0px 0px 15px;
+    padding: 10px;
+    margin: 30px;
+    cursor: pointer;
+    gap: 5px;
+    height: 200px;
+    transition: box-shadow 0.2s;
+}
+.type:hover{
+    box-shadow: #00b98e 0px 0px 15px;
+
+}
+.type img{
+    width: 100px;
+    border-radius: 50%;
+    border: #00b98e 3px dotted;
+    padding: 15px;
+}
+.type p{
+    color: #666;
+}
+/* recommended */
+.recommended{
+    color: #0E2E50;
+    text-align: center;
+    margin-top: 50px;
+}
+.recommendations{
+    display: grid;
+    grid-template-columns: auto auto ;
+    width: 100%;
+    row-gap: 50px;
+    margin-top: 50px;
+    padding: 0px 150px;
+}
+.apartment{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: #eee 2px solid;
+    border-radius: 10px;
+    border: 3px solid #eee;
+    transition: box-shadow 0.4s;
+}
+.apartment:hover{
+    box-shadow: 0px 0px 8px #000;
+}
+.apartment_img{
+    width: 100%;
+    height: 280px;
+    border-radius: 10px 10px 0px 0px;
+}
+.favourite{
+    width: 30px;
+    padding: 4px;
+    color: white;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    cursor: pointer;
+}
+.apartment h4 , .apartment p , .details{
+    margin: 5px 10px 0px;
+}
+.details{
+    width: 40%;
+}
+.price_and_contact{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+.price p{
+    margin: 0px;
+}
+.contact{
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    width: 30%;
+}
+.contact a{
+    width: 100%;
+    height: 60px;
+}
+.call{
+    background-color:#e4ebf2;
+}
+.whatsapp{
+    background-color: #4cd964;
+}
+.call , .whatsapp{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.call-icon, .whatsapp-icon{
+    width: 70%;
+}
+@media (max-width: 490px) {
+    main{
+            margin-top: 120px;
+        }
+        #top{
+            width: 90%;
+            margin-left: 5%;
+        }
+        section{
+            font-size: 16px;
+        }
+        article{
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        article br{
+            display: none;
+        }
+        aside{
+            width: 100%;
+            margin-left: 0px;
+        }
+        .search{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            width: 90%;
+            height: 220px;
+            margin-left: 5%;
+        }
+        .search *{
+            font-size: 14px;
+            height: 35px;
+        }
+        .search input{
+            width: 100%;
+            margin-left: 0%;
+            order: 1;
+            grid-column-start: 1;
+            grid-column-end: 4;
+            margin-left: 0%;
+        }
+        .search select{
+            width: 100%;
+        }
+        #Listing{
+            order: 2;
+        }
+        #property_type{
+            order: 3;
+        }
+        #Bathrooms{
+            order: 4;
+        }
+        #Bedrooms{
+            order: 5;
+        }
+        #Price{
+            order: 6;
+        }
+        #sort{
+            order: 7;
+        }
+        #find{
+            width: 100%;
+            order: 8;
+            grid-column-start: 2;
+            grid-column-end: 3;
+        }
+    
+        /* top areas */
+        .top_areas , .property_type{
+            font-size: 25px;
+        }
+        .areas{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            align-items: center;
+        }
+        .city h3{
+            font-size: 16px;
+        }
+    
+        /* property type */
+        .properties{
+            display: grid;
+            grid-template-columns: auto auto;
+        }
+        .type h3{
+            font-size: 16px;
+        }
+        .type p{
+            font-size: 14px;
+        }
+        /* recommendations */
+        .recommendations{
+            display: grid;
+            grid-template-columns: auto;
+            width: 80%;
+            margin-left: 10%;
+            row-gap: 30px;
+            padding: 0px;
+            margin-top: 50px;
+        }
+        .apartment{
+            width: 100%;
+            height: 340px;
+        }
+        .apartment_img{
+            height: 200px;
+        }
+        .contact{
+            margin-top: -15px;
+        }
+    }

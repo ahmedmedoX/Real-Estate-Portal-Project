@@ -1,0 +1,121 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "http://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src = "http://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="{% static 'sell.css'%}">
+    <link rel="shortcut icon" type="image/png" href="{% static '/imgs/logo.png' %}" >
+    <title>SuiteHome</title>
+</head>
+<body>
+    {% include 'nav_bar.html' %}
+    <main>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'update_property' properties.0.0.id %}">
+                {% csrf_token %}
+                <h3>Edit Property Details</h3>
+                <input type="text" name="name" placeholder="Property Name" value='{{properties.0.0.name}}'required>
+                <div class="full_address">
+                    <input type="number" name="floor_number" placeholder="Floor Number" value='{{properties.0.0.floor_number}}' required>
+                    <input type="number" name="apartment_number" placeholder="Apartment Number" value='{{properties.0.0.apartment_number}}' required>
+                    <input type="number" name="Installment_years" placeholder="Installment Years" value='{{properties.0.0.installment_years}}'required>
+                    <input type="number" name="price" placeholder="Price" value='{{properties.0.0.price}}' required>
+                    <input type="number" name="size" placeholder="Size" value='{{properties.0.0.size}}' required>
+                    <input type="number" name="Bathrooms" placeholder="Bathrooms Number" value='{{properties.0.0.Bathrooms}}' required>
+                    <input type="number" name="Bedrooms" placeholder="Bedrooms Number" value='{{properties.0.0.Bedrooms}}' required>
+                    <select name="category" id="" required>
+                        <option value="" selected disabled>Property Type</option>
+                        <option {{selection.0}} value="Apartment">Apartment</option>
+                        <option {{selection.1}} value="Villa">Villa</option>
+                        <option {{selection.2}} value="House">House</option>
+                        <option {{selection.3}} value="Office">Office</option>
+                        <option {{selection.4}} value="Studio">Villa</option>
+                        <option {{selection.5}} value="Shop">Shop</option>
+                    </select>
+                    <div id="blank"></div>
+                    <label for="img">Select image 1:</label>
+                    <label for="img">Select image 2:</label>
+                    <label for="img">Select image 3:</label>
+                    <input type="file" id="img" name="image1" accept="image/*" src='{{properties.0.0.image1.url}}' onchange="loadFile1(event)">
+                    <input type="file" id="img" name="image2" accept="image/*" src='{{properties.0.0.image2.url}}' onchange="loadFile2(event)">
+                    <input type="file" id="img" name="image3" accept="image/*" src='{{properties.0.0.image3.url}}' onchange="loadFile3(event)">
+                    <div class="upload"><img id="output1" src="{{properties.0.0.image1.url}}"></div>
+                    <div class="upload"><img id="output2" src="{{properties.0.0.image2.url}}"></div>
+                    <div class="upload"><img id="output3" src="{{properties.0.0.image3.url}}"></div>
+                    
+                </div>
+                <textarea name="description" id="description" cols="30" rows="10" placeholder="Description"required>{{properties.0.0.description}}</textarea>
+                <div class="location">
+                    <input type="text" name="latitude" id="latitude" value="{{properties.0.0.latitude}}" required>
+                    <input type="text" name="longitude" id="longitude" value="{{properties.0.0.longitude}}" placeholder="Longitude" required>
+                </div>
+                <div id="map"></div>
+                <button class="submit" type="submit">Submit</button>
+        </form>    
+    </main>
+    {% include 'footer.html' %}
+    <script>
+    var data = JSON.parse ("{{data | escapejs}}");
+    let locations = [
+    {
+        "id": 1,
+        "lat": data.lat,
+        "long": data.lon
+    }]
+
+    let mapOptions = {
+        center:[data.lat, data.lon],
+        zoom:15
+    }
+    let map = new L.map('map' , mapOptions);
+    let layer = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+    map.addLayer(layer);
+    let marker = null;
+    let mark = L.marker([locations[0].lat,locations[0].long]).addTo(map);
+
+    map.on('click', (event)=> {
+        
+        if(marker !== null){
+            map.removeLayer(marker);
+        }
+        map.removeLayer(mark);
+        marker = L.marker([event.latlng.lat , event.latlng.lng]).addTo(map);
+        document.getElementById('latitude').value = event.latlng.lat;
+        document.getElementById('longitude').value = event.latlng.lng;
+    })
+    
+    var loadFile1 = function(event) {
+        var output = document.getElementById('output1');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        if (output.src == null){
+            output.src == '';
+        }
+        output.onload = function() {
+          URL.revokeObjectURL(output.src) // free memory
+        }
+      };
+      var loadFile2 = function(event) {
+        var output = document.getElementById('output2');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        if (output.src == null){
+            output.src == '';
+        }
+        output.onload = function() {
+          URL.revokeObjectURL(output.src)
+        }
+      };
+      var loadFile3 = function(event) {
+        var output = document.getElementById('output3');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        if (output.src == null){
+            output.src == '';
+        }
+        output.onload = function() {
+          URL.revokeObjectURL(output.src)
+        }
+      };
+    </script>
+</body>
+</html>

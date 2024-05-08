@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'profile.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static '/imgs/logo.png' %}" >
+    <title>SuiteHome</title>
+</head>
+<body>
+    {% include 'nav_bar.html' %}
+    <main>
+        <div class="user_info">
+            <div class="user">
+                <h4>My Account</h4>
+                <a id="personal" href="{% url 'profile' %}"><p>Personal Information</p></a>
+                <a id="your-properties" href="{% url 'your_properties' %}"><p>Your Properties</p></a>
+            </div>
+            <form action="{% url 'update_profile' %}" method='POST' class="info">
+                {% csrf_token %}
+                <!-- <label for="">Information</label> -->
+
+                <div class="title">
+                    <input name="username" type="text" value="{{user.username}}">
+                    <span>Username</span>
+                </div>
+                
+                <!-- <label for="">Contact</label> -->
+                
+                <div class="title">
+                    <input name="email" type="Email" value="{{user.email}}">
+                    <span>Email</span>
+                </div>
+                
+                <div class="title">
+                    <input name="phone" type="tel" value="{{profile.phone}}">
+                    <span>Phone Number</span>
+                </div>
+
+                <div class="title">
+                    <input name="street" type="text" value="{{profile.street}}">
+                    <span>Street</span>
+                </div>
+
+                <div class="title">
+                    <input name="city" type="text" value="{{profile.city}}">
+                    <span>City</span>
+                </div>
+
+                <button href="{% url 'home' %}" id="save" type="submit">Save</button>
+            </form>
+        </div>
+        <a href="{% url 'logout' %}"><button id="log_out">Log out</button></a>
+        <a href="{% url 'delete_confirm' %}"><button id="delete2">Delete Account</button></a>
+
+    </main>
+    {% include 'footer.html' %}
+
+</body>
+</html>

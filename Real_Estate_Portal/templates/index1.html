@@ -1,0 +1,237 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index1.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" type="image/png" href="{% static '/imgs/logo.png' %}" >
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <title>SuiteHome</title>
+</head>
+<body>
+    {% include 'nav_bar.html' %}
+    <main>
+        <div id="top">
+            <div id="top-left">
+                <section>
+                    <h1>Find A <p>Perfect Home</p> <br> To Live With Your <br> Family</h1>
+                </section>
+                <article>
+                    <p>Search & compare among a lot of properties and <br> compounds or list your property for sale</p>
+                </article>
+            </div>
+
+            <div id="top-right">
+                <aside id="imageSlider">
+                    <img src="{% static '/imgs/house1.jpg' %}" alt="">
+                    <img src="{% static '/imgs/house2.jpg' %}" alt="" style="display:none;">
+                    <img src="{% static '/imgs/house3.jpg' %}" alt="" style="display:none;">
+                    <img src="{% static '/imgs/house4.jpg' %}" alt="" style="display:none;">
+                </aside>
+            </div>
+        </div>
+    <form method="POST" action="{% url 'search' %}" class="search">
+        {% csrf_token %}
+        <input type="text" name='search_input' placeholder="Area, Street, City" style="width: auto;">
+        <select name="Listing" id="Listing">
+            <option value="1">Buy</option>
+            <option value="0">Rent</option>
+        </select>
+        <select name="property_type" id="property_type">
+            <option value="" disabled selected>Property Types</option>
+            <option value="0">Any Type</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Villa">Villa</option>
+            <option value="House">House</option>
+            <option value="Office">Office</option>
+            <option value="Studio">Studio</option>
+            <option value="Shop">Shop</option>
+        </select>
+        <select name="Bathrooms" id="Bathrooms">
+            <option value="" disabled selected>Bathrooms</option>
+            <option value="0" >Any Number</option>
+            <option value="1">1 Bathroom</option>
+            <option value="2">2 Bathrooms</option>
+            <option value="3">3 Bathrooms</option>
+            <option value="4">4 Bathrooms</option>
+            <option value="5">+4 Bathrooms</option>
+        </select>
+        <select name="Bedrooms" id="Bedrooms">
+            <option value="" disabled selected>Bedrooms</option>
+            <option value="0">Any Number</option>
+            <option value="1">1 Bedroom</option>
+            <option value="2">2 Bedrooms</option>
+            <option value="3">3 Bedrooms</option>
+            <option value="4">4 Bedrooms</option>
+            <option value="5">+4 Bedrooms</option>
+        </select>
+        <select name="Price" id="Price">
+            <option value="" disabled selected>Price</option>
+            <option value="0" >Any Price</option>
+            <option value="1-4">1M To 4M</option>
+            <option value="4-10">4M To 10M</option>
+            <option value="10-15">10M To 15M</option>
+            <option value="15-30">15M To 30M</option>
+            <option value="+30">+30M</option>
+        </select>
+        <select name="Sort" id="sort">
+            <option value="" disabled selected>Sort By</option>
+            <option value="id">Recently saved</option>
+            <option value="price">Price (low)</option>
+            <option value="-price">Price (high)</option>
+        </select>
+        <button type="submit" id="find">Search</button>
+    </form>
+    <h1 class="top_areas">best Areas</h1>
+    <div class="areas">
+        <a href="{% url 'area_search' 'New Cairo' %}" class="city">
+            <img src="{% static '/imgs/city1.png' %}" alt="city image">
+            <h3>New Cairo</h3>
+            <p>127 Compounds</p>
+        </a>
+        <a href="{% url 'area_search' '6th of October' %}" class="city">
+            <img src="{% static '/imgs/city2.png' %}" alt="city image">
+            <h3>6th of October City</h3>
+            <p>84 Compounds</p>
+        </a>
+        <a href="{% url 'area_search' 'New Capital' %}" class="city">
+            <img src="{% static '/imgs/city3.png' %}" alt="city image">
+            <h3>New Capital City</h3>
+            <p>95 Compounds</p>
+        </a>
+        <a href="{% url 'area_search' 'Alexandria' %}" class="city">
+            <img src="{% static '/imgs/city4.png' %}" alt="city image">
+            <h3>Alexandria</h3>
+            <p>20 Compounds</p>
+        </a>
+        <a href="{% url 'area_search' 'Gouna' %}" class="city">
+            <img src="{% static '/imgs/city5.png' %}" alt="city image">
+            <h3>El Gouna</h3>
+            <p>42 Compounds</p>
+        </a>
+        <a href="{% url 'area_search' 'North Coast' %}" class="city">
+            <img src="{% static '/imgs/city6.png' %}" alt="city image">
+            <h3>North Coast</h3>
+            <p>85 Compounds</p>
+        </a>
+    </div>
+    <div class="sell-container">
+        <div class="sell-card">
+            <h2>Sell Your Property</h2>
+            <img src="{% static 'imgs/sell_property_logo.png' %}" alt="">
+        </div>
+        <div class="sell-form">
+            <p>Sell your property in 3 simple steps</p>
+            {%if loggedin%}
+            <a href="{% url 'list_property' %}">Learn More</a>
+            {%else%}
+            <a href="{% url 'login' %}">Learn More</a>
+            {%endif%}
+        </div>
+    </div>
+    <h1 class="property_type">Property Type</h1>
+    <div class="properties">
+        <a href="{% url 'type_search' 'Apartment'%}" class="type">
+            <img src="{% static '/imgs/apartment.png' %}" alt="Apartment">
+            <h3>Apartment</h3>
+            <p>{{count.0}} Apartments</p>
+        </a>
+        <a href="{% url 'type_search' 'Villa'%}" class="type">
+            <img src="{% static '/imgs/villa.png' %}" alt="Villa">
+            <h3>Villa</h3>
+            <p>{{count.1}} Villas</p>
+        </a>
+        <a href="{% url 'type_search' 'House'%}" class="type">
+            <img src="{% static '/imgs/house.png' %}" alt="House">
+            <h3>House</h3>
+            <p>{{count.2}} Houses</p>
+        </a>
+        <a href="{% url 'type_search' 'Office'%}" class="type">
+            <img src="{% static '/imgs/office.png' %}" alt="Office">
+            <h3>Office</h3>
+            <p>{{count.3}} Offices</p>
+        </a>
+        <a href="{% url 'type_search' 'Studio'%}" class="type">
+            <img src="{% static '/imgs/studio.png' %}" alt="Studio">
+            <h3>Studio</h3>
+            <p>{{count.4}} Studios</p>
+        </a>
+        <a href="{% url 'type_search' 'Shop'%}" class="type">
+            <img src="{% static '/imgs/shop.png' %}" alt="Shop">
+            <h3>Shop</h3>
+            <p>{{count.5}} Shops</p>
+        </a>
+    </div>
+    <h2 class="recommended">Recommended</h2>
+    <div class="recommendations">
+        {% for property in properties %}
+        <div class="apartment">
+            {%if loggedin%}
+            <i class="fa fa-heart favourite" alt="favourite" id="{{property.0.id}}" onclick="changeColor(this,'{{property.0.id}}')"></i>
+            {%endif%}
+            <a href="{%url 'property' property.0.id %}">
+                <img  class="apartment_img" src="{{property.0.image1.url}}" alt="Apartment 1">
+            </a>
+            <h4>{{property.0.name}}</h4>
+            <p>{{property.0.city}}, Egypt</p>
+        <div>
+                <p>{{property.0.size}} m<sup>2</sup></p>
+            </div>
+            <div class="price_and_contact">
+                <div class="price">
+                    <p>{{property.2}} Monthly / {{property.0.installment_years}} Years </p>
+                    <h3>{{property.1}} EGP</h3>
+                </div>
+                <div class="contact">
+                    <a class="call" href="">
+                        <img class="call-icon" src="{% static '/imgs/call.png'%}" alt="Call">
+                    </a>
+                    <a class="whatsapp" href="">
+                        <img class="whatsapp-icon" src="{% static '/imgs/whatsapp.png'%}" alt="Whatsapp">
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </main>
+    {% include 'footer.html' %}
+    <script src="{%static 'index.js'%}"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+    <script src="{%static 'location.js'%}"></script>
+<script>
+    var data = JSON.parse ("{{data | escapejs}}");
+    for (let u = 0; u <Object.values(data).length; u++) {
+        const f=document.getElementById(Object.values(data)[u].toString())
+        if (f){
+        f.style.color='red';
+        }
+    }
+    
+    var x = 0;
+    function changeColor(element,id) {
+        var y = window.getComputedStyle(element).color;
+        if (y[9]=='0'){
+          element.style.color = 'white';
+          x = 0;
+        }
+        else{
+          element.style.color = 'red';
+          x = 1;
+        }
+        $(document).ready(function() {
+                $.ajax({
+                    method: 'GET',
+                    url: "{% url 'add_favourite' %}",
+                    data: {id: id, x: x}
+                });
+            });
+    }
+    </script>
+</body>
+</html>

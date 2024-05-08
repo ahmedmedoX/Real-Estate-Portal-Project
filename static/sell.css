@@ -1,0 +1,266 @@
+:root{
+    --dark-blue: #001d47;
+    --light-green: #00b98e;    
+}
+*{
+    box-sizing: border-box;
+    font-family: Roboto , sans-serif;
+    margin: 0;
+}
+body{
+    height: auto;
+    margin-bottom: 20px;
+}
+
+#tabs{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.tablink{
+    font-size: 20px;
+    border-radius: 3px;
+    width: 130px;
+    height: 40px;
+    margin-top: -20px;
+    background-color: #00b98e;
+    color: #fff;
+    border: none;
+    box-shadow: #0000002f 0px 2px 5px;
+    cursor: pointer;
+    transition: box-shadow 0.5s;
+}
+.tablink:hover{
+    box-shadow: 0px 0px 7px #000;
+}
+#sell-tab{
+    background-color: var(--dark-blue);
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 150px;
+    gap: 20px;
+}
+.property_sale{
+    width: 8%;
+}
+main h3{
+    color: #56708a;
+}
+main h3 span{
+    color: #29c4a0;
+}
+/* Steps for selling */
+.steps{
+    width: 60%;
+    margin-top: 65px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.step{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #e4ebf2;
+    height: 100px;
+    border-radius: 10px;
+}
+.step_number{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    width: 8%;
+    margin-left: 2%;
+    font-size: 1.15vw;
+}
+.step_details{
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.step_details h3{
+    font-size: 1.35vw;
+}
+.step_details p{
+    font-size: 1.3vw;
+}
+main form{
+    background-color: #e4ebf2;
+    width: 60%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    gap: 20px;
+}
+form *{
+    color: #262626;
+}
+form h3{
+    color: #000;
+    font-weight: normal;
+}
+/* form p{
+    color: #323232;
+} */
+form input{
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    font-size: 1.2vw;
+    width: 100%;
+    background-color: #fff;
+}
+.full_address{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    width: 100%;
+    border: none;
+}
+.full_address input[type=file]{
+    padding-left: 0px;
+    border-radius: 0px;
+    background: none;
+}
+form select{
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    color: #70717d;
+    font-size: 1.2vw;
+}
+.upload img{
+    margin-left: 20px;
+    width: 200px;
+    object-fit: scale-down;
+}
+#description{
+    height: 100px;
+    padding-bottom: 60px;
+    resize: none;
+    padding: 10px 0px 0px 20px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+}
+.location{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    border: none;
+}
+.submit{
+    height: 40px;
+    background-color: #0e2e50;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.5s;
+    font-weight: bold;
+}
+.submit:hover{
+    box-shadow: 0px 0px 6px #000;
+}
+
+#map{
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    z-index: 0;
+}
+.select-image1,.select-image2,.select-image3{
+    font-size: larger;
+}
+
+@media (max-width: 490px){
+main{
+    width: 100%;
+}
+.tablink{
+    font-size: 18px;
+}
+.property_sale{
+    width: 18%;
+}
+.steps{
+    width: 80%;
+}
+.step{
+    width: 100%;
+}
+.step_number{
+    font-size: 14px;
+    width: 20%;
+}
+.step_details{
+    width: 100%;
+    margin-left: 4%;
+}
+.step_details h3{
+    font-size: 16px;
+}
+.step_details p{
+    font-size: 14px;
+}
+main form{
+    width: 100%;
+}
+form h3{
+    font-size: 18px;
+    text-align: center;
+}
+form input{
+    font-size: 14px;
+}
+form select{
+    font-size: 14px;
+}
+.full_address{
+    grid-template-columns: auto auto auto;
+}
+/* #blank{
+    display: none;
+} */
+/* .select-image1{
+    order: 1;
+}
+.image1{
+    order: 2;
+}
+.select-image2{
+    order: 3;
+}
+.image2{
+    order: 4;
+}
+.select-image3{
+    order: 5;
+}
+.image3{
+    order: 6;
+} */
+.upload{
+    display: none;
+}
+.select-image1, .select-image2, .select-image3{
+    font-size: 14px;
+    text-align: center;
+}
+.image1, .image2, .image3{
+    font-size: 14px;
+    text-wrap: wrap;
+}
+}

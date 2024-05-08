@@ -1,0 +1,23 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'delete_confirm.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static '/imgs/logo.png' %}" >
+    <title>SuiteHome</title>
+</head>
+<body>
+    {% include 'nav_bar.html' %}
+    <main>
+        <div class="user">
+            <h4 id="first">Are you sure that you want to delete this property listing?</h4>
+            <a id="third" href="{% url 'delete_property_confirm' id %}"><button id="delete2">Delete Property</button></a>
+        </div>
+    </main>
+    {% include 'footer.html' %}
+</body>
+</html>

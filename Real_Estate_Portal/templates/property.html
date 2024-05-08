@@ -1,0 +1,185 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'property.css'%}">
+    <link rel="shortcut icon" type="image/png" href="{% static '/imgs/logo.png' %}" >
+    <title>SuiteHome</title>
+</head>
+<body>
+    {% include 'nav_bar.html' %}
+    <main>
+        <div class="first_part">
+            <div class="image_slider">
+                <img class="mySlides" src="{{property.0.0.image1.url}}">
+                <img class="mySlides" src="{{property.0.0.image2.url}}">
+                <img class="mySlides" src="{{property.0.0.image3.url}}">
+                <!-- <img class="mySlides" src="{% static '/imgs/apartment_4.png'%}"> -->
+                
+                <button class="left_button" onclick="plusDivs(-1)">&#10094;</button>
+                <button class="right_button" onclick="plusDivs(1)">&#10095;</button>
+            </div>
+            <div class="communicate">
+                <div class="like_and_share">
+                    <button>
+                        <i class="fa fa-heart" style="font-size: 24px; color: Black;" alt="Favourite" id="{{property.0.0.id}}" onclick="changeColor(this,'{{property.0.0.id}}')"></i>
+                        <p>Save</p>
+                    </button>
+                    <img src="{% static '/imgs/logo.png'%}" alt="Logo">
+                    <button>
+                        <img src="{% static '/imgs/share.png'%}" alt="Share">
+                        <p>Share</p>
+                    </button>
+                </div>
+                <hr class="line">
+                <div class="contact_owner">
+                    <a id="whatsapp" href=""><img src="{% static '/imgs/whatsapp.png'%}" alt=""> Whatsapp</a>
+                    <a id="call" href=""><img src="{% static '/imgs/telephone.png'%}" alt=""> Call</a>
+                    <a id="email" href=""><img src="{% static '/imgs/email logo.png'%}" alt=""> Send Email</a>
+                </div>
+            </div>
+        </div>
+        <p class="description">{{property.0.0.category}}, {{property.0.0.name}}</p>
+        <div class="location">
+            <img src="{% static '/imgs/gps.png'%}" alt="location">
+            <p>{{property.0.3}}</p>
+        </div>
+        <div class="price_location">
+            <div class="price">
+                <h3 id="price">{{property.0.1}} EGP</h3>
+                <h3 id="property-details">Property Details:</h3>
+            </div>
+            <iframe class="googlemap"
+                src="{{property.0.5}}" 
+                height="180" 
+                style="border:0; margin-bottom: 20px;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"> 
+            </iframe>
+        </div>
+        <div class="table_details">
+            <table>
+                <tr>
+                    <td>Size (in cubic meters)</td>
+                    <td>{{property.0.0.size}} m<sup>2</sup></td>
+                </tr>
+                <tr>
+                    <td>Bedrooms</td>
+                    <td>{{property.0.0.Bedrooms}}</td>
+                </tr>
+                <tr>
+                    <td>Bathrooms</td>
+                    <td>{{property.0.0.Bathrooms}}</td>
+                </tr>
+                <tr>
+                    <td>Floor</td>
+                    <td>{{property.0.0.floor_number}}</td>
+                </tr>
+                <tr>
+                    <td>Monthly / {{property.0.0.installment_years}} Years</td>
+                    <td>{{property.0.2}} EGP</td>
+                </tr>
+                <tr>
+                    <td>Payment Method</td>
+                    <td>Cash or Installments</td>
+                </tr>
+            </table>
+            <form action="">
+                <img src="{% static '/imgs/form_image.png'%}" alt="contact">
+                <h3>Need Expert Advice?</h3>
+                <p>Fill out the form and one of our <br> property consultants will contact <br> you.</p>
+                <input id="name" type="text" placeholder="Your Name" required>
+                <input id="area" type="text" placeholder="The Area" required>
+                <input id="phone_number" type="tel" placeholder="Phone Number" required>
+                <input id="message" type="text" placeholder="Your message" required>        
+                <input id="submit" type="submit" placeholder="Submit" required>        
+            </form>
+        </div>
+        <div class="property_details">
+            <div class="advantages">
+                <h4 style="font-size: 21px;">Description:</h4>
+                <p>{{property.0.0.description}}</p>
+                {%if property.0.4 %}
+                <p><span id="dots">...</span></p>
+                <span id="more">
+                    <p>There is a world-class branded hotel that your guests can stay in or you can use for a relaxing day use.</p>
+                </span>
+                <button onclick="myFunction()" id="myBtn">Read more</button>
+                {%endif%}
+            </div>
+            
+        </div>
+        <h3 class="suggested">Suggested Properties</h3>
+
+        <div class="suggestion">
+        {% for prop in properties %}
+        <div class="apartment">
+            <i class="fa fa-heart favourite" alt="favourite" id="{{prop.0.id}}" onclick="changeColor(this,'{{prop.0.id}}')"></i>            
+            <a href="{%url 'property' prop.0.id %}">
+                <img  class="apartment_img" src="{{prop.0.image1.url}}" alt="Apartment 1">
+            </a>
+            <h4>{{prop.0.name}}</h4>
+            <p>{{prop.0.city}}, Egypt</p>
+            <div>
+                <p>{{prop.0.size}} m<sup>2</sup></p>
+            </div>
+            <div class="price_and_contact">
+                <div class="price">
+                    <p>{{prop.2}} Monthly / {{prop.0.installment_years}} Years </p>
+                    <h3>{{prop.1}} EGP</h3>
+                </div>
+                <div class="contact">
+                    <a class="call" href="">
+                        <img src="{% static '/imgs/call.png'%}" alt="Call">
+                    </a>
+                    <a class="whatsapp" href="">
+                        <img src="{% static '/imgs/whatsapp.png'%}" alt="Whatsapp">
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+    </main>
+        {% include 'footer.html' %} 
+    <p style="font-size: larger;" id="8">1</p>
+    <p style="font-size: larger;" id="14">2</p>
+    <p style="font-size: larger;" id="12">3</p>
+    <p style="font-size: larger;" id="13">4</p>
+    <p style="font-size: larger;" id="11">5</p>
+<script src="{% static 'property.js'%}"></script>     
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+<script>
+    var data = JSON.parse ("{{data | escapejs}}");
+        for (let u = 0; u <Object.values(data).length; u++) {
+            const f=document.getElementById(Object.values(data)[u].toString())
+            if (f){
+            f.style.color='red';
+            }
+        }
+    var x = 0;
+    function changeColor(element,id) {
+        var y = window.getComputedStyle(element).color;
+        if (y[9]=='0'){
+          element.style.color = 'white';
+          x = 0;
+        }
+        else{
+          element.style.color = 'red';
+          x = 1;
+        }
+        $(document).ready(function() {
+                $.ajax({
+                    method: 'GET',
+                    url: "{% url 'add_favourite' %}",
+                    data: {id: id, x: x}
+                });
+            });
+    }
+</script>
+</body>
+</html>

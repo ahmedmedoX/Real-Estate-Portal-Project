@@ -1,0 +1,159 @@
+:root{
+    --dark-blue: #001d47;
+    --light-green: #00b98e;    
+}
+*{
+    box-sizing: border-box;
+    font-family: Roboto , sans-serif;
+    margin: 0;
+}
+body{
+    height: auto;
+    margin-bottom: 20px;
+}
+main{
+    margin-top: 150px;
+    width: 80%;
+    margin-left: 10%;
+}
+.user_info{
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin-top: 40px;
+}
+.user{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 30%;
+}
+.user a{
+    text-decoration: none;
+    color: #000;
+    transition: color 0.5s;
+    font-weight: bold;
+}
+.user a:hover{
+    color: #4a1cb6;
+}
+.user p{
+    background-color: #eee;
+    width: 80%;
+    height: 50px;
+    padding: 17px 0px 0px 20px;
+    border-left: 3px solid #0e2e50;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 35%;
+    margin-top: 35px;
+}
+.info input , .info button{
+    height: 50px;
+    border-radius: 10px;
+    font-size: 15px;
+}
+.info input{
+    padding: 10px 0px 0px 10px;
+    height: 55px;
+    border: 2px solid #d1d1d1;
+}
+.info button{
+    border: none;
+}
+.title{
+    position: relative;
+    width: 100%;
+}
+.title input{
+    width: 100%;
+}
+.title span{
+    position: absolute;
+    top: 5px;
+    left: 10px;
+    font-size: 14px;
+    color: #666;
+}
+#save{
+    background-color: #0e2e50;
+    font-weight: bold;
+    color: #fff;
+    transition: box-shadow 0.5s;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#save:hover{
+    box-shadow: 0px 0px 10px #000;
+}
+#log_out{
+    width: 15%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #0e2e50;
+    border: none;
+    color: #fff;
+    transition: box-shadow 0.5s;
+    font-weight: bold;
+    margin-left: 90%;
+    margin-top: 40px;
+    cursor: pointer;
+}
+#log_out:hover{
+    box-shadow: 0px 0px 10px #000;
+}
+#delete2{
+    width: 15%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #850909;
+    border: none;
+    color: #fff;
+    transition: box-shadow 0.5s;
+    font-weight: bold;
+    margin-left: 90%;
+    margin-top: 40px;
+    cursor: pointer;
+}
+#delete2:hover{
+    box-shadow: 0px 0px 10px #000;
+}
+@media (max-width: 490px) {
+.user{
+    margin-top: 0px;
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 100%;
+    column-gap: 50px;
+}
+.user h4{
+    order: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
+}
+.user p{
+    width: 100%;
+    font-size: 3vw;
+}
+#personal{
+    order: 2;
+    width: 100%;
+}
+#your-properties{
+    order: 3;
+    width: 100%;
+}
+.info{
+    margin-left: -85%;
+    margin-top: 100px;
+    width: 70%;
+}
+#log_out, #delete2{
+    width: 35%;
+    margin-left: 75%;
+}
+}
